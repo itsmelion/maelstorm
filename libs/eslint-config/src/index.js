@@ -62,4 +62,13 @@ module.exports = {
     indent: ['warn', 2],
     '@typescript-eslint/indent': ['warn', 2],
   },
+
+  overrides: [
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": 'off',
+      }
+    }
+  ]
 };
