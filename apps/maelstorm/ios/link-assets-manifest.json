@@ -1,0 +1,41 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "../../libs/components/src/fonts/Assistant-Bold.ttf",
+      "sha1": "bc0cbf687dd64b28f4fd5b4a0b8de50bac9fab71"
+    },
+    {
+      "path": "../../libs/components/src/fonts/Assistant-ExtraLight.ttf",
+      "sha1": "924e46a771b47d8e15ae8b81646431e2a30cfc5e"
+    },
+    {
+      "path": "../../libs/components/src/fonts/Assistant-Medium.ttf",
+      "sha1": "8b533cdcda8dd42032c2ee962d76988c554d10c3"
+    },
+    {
+      "path": "../../libs/components/src/fonts/Assistant-Regular.ttf",
+      "sha1": "c9f93188102aff986e127fd71b48c6e6ef1cf538"
+    },
+    {
+      "path": "../../libs/components/src/fonts/Assistant-SemiBold.ttf",
+      "sha1": "451921324281ffcce6072e6c8d0656dd1165528e"
+    },
+    {
+      "path": "../../libs/components/src/fonts/Exo2-Black.ttf",
+      "sha1": "661544a48ff6095e434acdc0b8cdb3dedd6143eb"
+    },
+    {
+      "path": "../../libs/components/src/fonts/Exo2-BlackItalic.ttf",
+      "sha1": "fcfcfdb955459727cf70bcc12b4e165dfe7ebab8"
+    },
+    {
+      "path": "../../libs/components/src/fonts/Exo2-Light.ttf",
+      "sha1": "f4bb7127516cf707f47a47bb377000d0cbeb1d5c"
+    },
+    {
+      "path": "../../libs/components/src/fonts/Exo2-LightItalic.ttf",
+      "sha1": "b4eb5b766ce075cb1e9e877441fdc24d7f8e9c5f"
+    }
+  ]
+}
