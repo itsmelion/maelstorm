@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@elements/components';
+import { ServicesProvider } from '@elements/services';
 import { Suspense } from 'react';
 
 import {
@@ -11,9 +12,11 @@ export const App = () => (
     <StatusBar barStyle="dark-content" />
 
     <ThemeProvider>
-      <Suspense>
-        <Text testID='heading'>Hello</Text>
-      </Suspense>
+      <ServicesProvider>
+        <Suspense>
+          <Text testID='heading'>Hello</Text>
+        </Suspense>
+      </ServicesProvider>
     </ThemeProvider>
   </>
 );
