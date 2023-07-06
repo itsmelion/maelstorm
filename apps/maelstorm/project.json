@@ -13,7 +13,7 @@
     "serve": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "cross-env TAMAGUI_TARGET=native nx start maelstorm"
+        "command": "cross-env TAMAGUI_TARGET=native nx start maelstorm --reset-cache"
       }
     },
     "run-ios": {
