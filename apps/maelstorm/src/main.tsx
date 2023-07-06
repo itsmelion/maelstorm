@@ -1,5 +1,5 @@
 import { AppRegistry } from 'react-native';
 
-import {App} from './app/App';
+import WithStorybook from './storybook/toggle-storybook';
 
-AppRegistry.registerComponent('Maelstorm', () => App);
+AppRegistry.registerComponent('Maelstorm', () => WithStorybook);

@@ -16,6 +16,16 @@
     "react-native-exception-handler": "*",
     "react-native-restart": "*",
     "@react-native-community/netinfo": "*",
-    "axios": "*"
+    "axios": "*",
+    "@storybook/react-native": "*",
+    "@storybook/addon-ondevice-actions": "*",
+    "@storybook/addon-ondevice-backgrounds": "*",
+    "@storybook/addon-ondevice-controls": "*",
+    "@storybook/addon-ondevice-notes": "*",
+    "@react-native-async-storage/async-storage": "*",
+    "react-native-safe-area-context": "*",
+    "@tamagui/config": "*",
+    "@tamagui/react-native-media-driver": "*",
+    "@tamagui/animations-moti": "*"
   }
 }
