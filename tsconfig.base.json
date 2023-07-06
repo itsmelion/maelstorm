@@ -17,7 +17,8 @@
     "paths": {
       "@elements/components": ["libs/components/src/index.ts"],
       "@elements/services": ["libs/services/src/index.ts"],
-      "@elements/utilities": ["libs/utilities/src/index.ts"]
+      "@elements/utilities": ["libs/utilities/src/index.ts"],
+      "eslint-config-maelstorm": ["libs/eslint-config/src/index.js"]
     }
   },
   "exclude": ["node_modules", "tmp"]
