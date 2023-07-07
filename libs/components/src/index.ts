@@ -1,5 +1,5 @@
 // Config, Wrappers etc..
-export { ThemeProvider } from './theme/config'
+export { ThemeProvider, tokens, config as themeConfig } from './theme/config';
 
 // Atoms
 // ...

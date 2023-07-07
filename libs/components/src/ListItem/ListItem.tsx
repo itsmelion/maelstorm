@@ -1,9 +1,9 @@
-import { Text, H3, TamaguiComponent } from 'tamagui'
+import { Text, H3, StackProps } from 'tamagui'
 
 import { Wrapper } from './ListItem.styled'
 import { Flex } from '../layout/Flex';
 
-interface ListItemProps extends TamaguiComponent {
+interface ListItemProps extends StackProps {
   title: string;
 }
 

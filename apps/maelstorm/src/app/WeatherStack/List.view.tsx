@@ -21,7 +21,7 @@ export function ListView(props: RootStackScreenProps<'List'>) {
           renderItem={(d) => (
             <ListItem
               key={d.index}
-              onPress={() => navigation.push('Forecast')}
+              onPress={() => navigation.push('Forecast', { cityId: d.item })}
               title={d.item}
             />
           )}

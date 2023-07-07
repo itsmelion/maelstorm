@@ -1,6 +1,7 @@
 /**
  * Toggle inspired from https://github.com/infinitered/ignite/blob/master/boilerplate/storybook/toggle-storybook.tsx
  */
+import { ThemeProvider } from '@elements/components';
 import React, { useState, useEffect, useRef } from 'react';
 import { DevSettings } from 'react-native';
 
@@ -57,8 +58,13 @@ function ToggleStorybook(props) {
   });
 
   if (showStorybook) {
-    return StorybookUIRoot ? <StorybookUIRoot /> : null;
+    return StorybookUIRoot ? (
+      <ThemeProvider>
+        <StorybookUIRoot />
+      </ThemeProvider>
+    ) : null;
   }
+
   return props.children;
 
 }

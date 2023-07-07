@@ -2,7 +2,7 @@ import type { StackScreenProps } from '@react-navigation/stack';
 
 export type RootStackParamList = {
   List: undefined;
-  Forecast: { id: string };
+  Forecast: { cityId: string };
 };
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =
@@ -11,6 +11,7 @@ export type RootStackScreenProps<T extends keyof RootStackParamList> =
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace ReactNavigation {
-    type RootParamList = RootStackParamList
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    interface RootParamList extends RootStackParamList {}
   }
 }

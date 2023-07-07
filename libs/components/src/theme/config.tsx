@@ -29,7 +29,9 @@ export const tokens = createTokens({
 
 });
 
-const config = createTamagui({
+export const config = createTamagui({
+  disableSSR: true,
+  reactNative: true,
   fonts: {
     body: createFont({
       family: 'Assistant',
@@ -131,10 +133,14 @@ const config = createTamagui({
 
 // this will give you types for your components
 // note - if using your own design system, put the package name here instead of tamagui
-
+/* eslint-disable @typescript-eslint/no-empty-interface, @typescript-eslint/ban-ts-comment */
+// @ts-ignore
+type AppConfig = typeof config;
 declare module 'tamagui' {
-  type TamaguiCustomConfig = typeof config;
+  // @ts-ignore
+  interface TamaguiCustomConfig extends AppConfig {}
 }
+/* eslint-enable @typescript-eslint/no-empty-interface, @typescript-eslint/ban-ts-comment */
 
 export const ThemeProvider = (props: Partial<TamaguiProviderProps>) => (
   <TamaguiProvider config={config} {...props} />
