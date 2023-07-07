@@ -9,3 +9,10 @@ export { network } from './network';
 // Elements API
 export { useWeatherElements } from './Weather/useWeatherElements';
 export { TempUnit } from './Weather/weather.types';
+
+
+// Location
+export { useSearchLocation } from './Locations/useSearchLocation';
+
+// Forecast/Weather
+export { useForecast } from './Forecast/useForecast';
