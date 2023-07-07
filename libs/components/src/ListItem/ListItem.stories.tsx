@@ -4,13 +4,11 @@ import type { Meta } from '@storybook/react-native';
 
 import { ListItem } from './ListItem';
 
-import { ThemeProvider } from '../theme/config';
-
-function themeWrapper(StoryFn) {
+function Spammer(StoryFn) {
   return (
-    <ThemeProvider>
-      <YStack>{new Array(4).fill(null).map((_,i) => <StoryFn key={i} />)}</YStack>
-    </ThemeProvider>
+    <YStack>
+      {new Array(4).fill(null).map((_,i) => <StoryFn key={i} />)}
+    </YStack>
   );
 }
 
@@ -22,7 +20,7 @@ const Story: Meta<typeof ListItem> = {
 export default Story;
 
 export const Primary = {
-  decorators: [themeWrapper],
+  decorators: [Spammer],
   args: {
     title: 'ListItem'
   },

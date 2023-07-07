@@ -72,7 +72,7 @@ module.exports = {
     },
 
     {
-      "files": ["*.view.tsx", "*.screen.tsx", "*.route.tsx"],
+      "files": ["*.view.tsx", "*.screen.tsx", "*.route.tsx", "*.stories.tsx"],
       "rules": {
         'import/no-default-export': 0,
         'import/prefer-default-export': 1,
