@@ -5,10 +5,11 @@ import { ServicesProvider, errorHandler } from '@elements/services';
 import { Suspense } from 'react';
 
 import {
-  Text,
   StatusBar,
 } from 'react-native';
 import { setJSExceptionHandler, setNativeExceptionHandler } from 'react-native-exception-handler';
+
+import { RootStack } from './navigation/RootStack';
 
 export const App = () => {
   setJSExceptionHandler(errorHandler);
@@ -23,7 +24,7 @@ export const App = () => {
       <ThemeProvider>
         <ServicesProvider>
           <Suspense>
-            <Text testID='heading'>Hello</Text>
+            <RootStack />
           </Suspense>
         </ServicesProvider>
       </ThemeProvider>

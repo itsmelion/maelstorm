@@ -8,4 +8,4 @@ export { network } from './network';
 
 // Elements API
 export { useWeatherElements } from './Weather/useWeatherElements';
-export type { TempUnit } from './Weather/weather.types';
+export { TempUnit } from './Weather/weather.types';

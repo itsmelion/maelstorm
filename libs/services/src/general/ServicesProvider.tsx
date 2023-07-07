@@ -11,6 +11,7 @@ const queryClient = new QueryClient({
     queries: {
       keepPreviousData: true,
       suspense: true,
+      staleTime: 1000 * 60 * 5,
     },
   },
 });

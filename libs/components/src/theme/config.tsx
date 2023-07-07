@@ -1,5 +1,5 @@
 import { createAnimations } from '@tamagui/animations-moti';
-import { createFont, createTamagui, createTokens, TamaguiProvider } from 'tamagui';
+import { createFont, createTamagui, createTokens, TamaguiProvider, TamaguiProviderProps } from 'tamagui';
 
 export const tokens = createTokens({
   size: {
@@ -136,6 +136,6 @@ declare module 'tamagui' {
   type TamaguiCustomConfig = typeof config;
 }
 
-export const ThemeProvider = (props) => (
-  <TamaguiProvider {...props} config={config} />
+export const ThemeProvider = (props: Partial<TamaguiProviderProps>) => (
+  <TamaguiProvider config={config} {...props} />
 );
