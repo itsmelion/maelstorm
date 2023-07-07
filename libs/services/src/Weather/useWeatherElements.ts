@@ -4,7 +4,6 @@ import _ from 'lodash';
 import type { WeatherDTO } from './weather.types';
 
 import { convertToCelsius } from './helpers/convertTemperature';
-import { mock } from './weather.mock';
 import { network } from '../network';
 
 const queryKey = 'weather';
@@ -19,7 +18,6 @@ export function useWeatherElements() {
   return useQuery({
     queryKey: [queryKey],
     queryFn,
-    // initialData: mock,
   });
 }
 

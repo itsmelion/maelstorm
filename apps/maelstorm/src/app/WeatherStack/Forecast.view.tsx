@@ -1,10 +1,9 @@
-import { ListItem } from '@elements/components';
 import { useWeatherElements } from '@elements/services';
 import _ from 'lodash';
 import { Suspense, useMemo } from 'react';
 import { SafeAreaView } from 'react-native';
 import ErrorBoundary from 'react-native-error-boundary';
-import { Stack, Text, YStack, P, H1, ScrollView, Image, View } from 'tamagui';
+import { Stack, Text, YStack, H1, ScrollView, Image, View } from 'tamagui';
 
 import type { RootStackScreenProps } from '../navigation/navigation.types';
 
