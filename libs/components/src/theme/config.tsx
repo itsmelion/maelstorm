@@ -101,9 +101,19 @@ export const config = createTamagui({
   },
 
   shorthands: {
-    px: 'paddingHorizontal',
     f: 'flex',
     w: 'width',
+    bg: 'backgroundColor',
+    m: 'margin',
+    mt: 'marginTop',
+    mb: 'marginBottom',
+    mx: 'marginHorizontal',
+    my: 'marginVertical',
+    p: 'padding',
+    pt: 'paddingTop',
+    pb: 'paddingBottom',
+    px: 'paddingHorizontal',
+    py: 'paddingVertical',
   } as const,
 
   animations: createAnimations({
