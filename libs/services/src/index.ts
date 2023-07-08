@@ -2,6 +2,7 @@
 export { ServicesProvider } from './general/ServicesProvider';
 export { errorHandler } from './general/RNErrorHandler';
 export { useOnlineManager } from './general/onlineManager';
+export { useRouteRestauration } from './general/routeRestauration';
 export { network } from './network';
 
 // Services
