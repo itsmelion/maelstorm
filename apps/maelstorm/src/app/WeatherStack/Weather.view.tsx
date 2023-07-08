@@ -1,10 +1,10 @@
 import { CurrentWeather } from '@elements/components';
-import { useForecast } from '@elements/services';
+import { useForecast, useSort } from '@elements/services';
 import _ from 'lodash';
 import { Suspense } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Pressable } from 'react-native';
 import ErrorBoundary from 'react-native-error-boundary';
-import { Stack, Text, XStack } from 'tamagui';
+import { Stack, Text } from 'tamagui';
 
 import type { RootStackScreenProps } from '../navigation.types';
 
@@ -12,6 +12,7 @@ export function WeatherView(props: RootStackScreenProps<'Weather'>) {
   const { route } = props;
   const { lat, lon, locality } = route.params;
   const { data } = useForecast({ lat, lon });
+  const sort = useSort();
 
   return (
     <Suspense fallback={<Text>Data is on the way</Text>}>
@@ -27,15 +28,11 @@ export function WeatherView(props: RootStackScreenProps<'Weather'>) {
             Forecast
           </Text>
 
-          <XStack space={12}>
+          <Pressable onPress={sort.toggle}>
             <Text fontWeight={'800'}>
-              asc
+              {sort.value === 'asc' ? 'ascending' : 'descending'}
             </Text>
-
-            <Text fontWeight={'800'}>
-              desc
-            </Text>
-          </XStack>
+          </Pressable>
 
           <ScrollView
             contentContainerStyle={{
@@ -45,8 +42,13 @@ export function WeatherView(props: RootStackScreenProps<'Weather'>) {
               minWidth: '100%',
             }}
             horizontal>
-            {_.sortBy(data.daily, d => d.dt)
+            {_(data.daily)
+              .sortBy(data.daily, d => d.dt)
               .splice(0,5)
+              .tap(v => {
+                if (sort.value === 'desc') return v.reverse()
+                return v;
+              })
               .map((d) => (
                 <Text
                   color={'$color'}
@@ -54,7 +56,8 @@ export function WeatherView(props: RootStackScreenProps<'Weather'>) {
                   key={d.dt}>
                   {`${_.round(d.temp.max)}°/${_.round(d.temp.min)}°`}
                 </Text>
-              ))}
+              ))
+              .value()}
           </ScrollView>
         </Stack>
       </ErrorBoundary>

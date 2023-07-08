@@ -16,3 +16,7 @@ export { useSearchLocation } from './Locations/useSearchLocation';
 
 // Forecast/Weather
 export { useForecast } from './Forecast/useForecast';
+
+
+// Store (redux)
+export { useSort } from './redux/sort/sort.slice';

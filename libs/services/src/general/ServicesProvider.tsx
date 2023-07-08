@@ -5,8 +5,10 @@ import {
   QueryClientProviderProps,
 } from '@tanstack/react-query';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
+import { Provider } from 'react-redux';
 
 import { useOnlineManager } from './onlineManager';
+import { store as reduxStore } from '../redux/store';
 
 
 const queryClient = new QueryClient({
@@ -30,13 +32,15 @@ export const ServicesProvider = ({ client, ...props }: Partial<QueryClientProvid
   useOnlineManager();
 
   return (
-    <PersistQueryClientProvider
-      client={client || queryClient}
-      onSuccess={() => queryClient.resumePausedMutations()}
-      persistOptions={{
-        persister: asyncPersist,
-      }}
-      {...props}
-    />
+    <Provider store={reduxStore}>
+      <PersistQueryClientProvider
+        client={client || queryClient}
+        onSuccess={() => queryClient.resumePausedMutations()}
+        persistOptions={{
+          persister: asyncPersist,
+        }}
+        {...props}
+      />
+    </Provider>
   );
 };
