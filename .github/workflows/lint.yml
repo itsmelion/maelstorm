@@ -1,0 +1,43 @@
+name: QualityChecks
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - development
+  pull_request:
+    branches:
+      - main
+      - master
+      - dev
+      - development
+      - staging
+    types: [opened, synchronize, reopened, 'ready_for_review']
+
+env:
+  CI: true
+  NX_DAEMON: false
+  TAMAGUI_TARGET: native
+  API_URL: ${{ secrets.API_URL }}
+  OPEN_WEATHER_API_KEY: ${{ secrets.OPEN_WEATHER_API_KEY }}
+
+jobs:
+  lint:
+    if: github.event.pull_request.draft != true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: nrwl/nx-set-shas@v3
+        with:
+          main-branch-name: 'development'
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile --silent --non-interactive
+
+      - run: yarn nx affected --target=lint
+
+      - run: yarn nx affected --target=test
