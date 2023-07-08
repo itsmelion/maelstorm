@@ -1,12 +1,12 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Forecast from '../WeatherStack/Forecast.view';
-import List from '../WeatherStack/List.view';
+import Forecast from './Forecast.view';
+import List from './List.view';
 
 const Stack = createNativeStackNavigator();
 
-export function RootStack() {
+export function ElementsStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator

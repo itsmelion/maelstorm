@@ -3,6 +3,7 @@ import type { StackScreenProps } from '@react-navigation/stack';
 export type RootStackParamList = {
   List: undefined;
   Forecast: { cityId: string };
+  Weather: { lat: number, lon: number, locality: string };
 };
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =

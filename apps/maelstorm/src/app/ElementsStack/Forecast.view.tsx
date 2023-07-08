@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native';
 import ErrorBoundary from 'react-native-error-boundary';
 import { Stack, Text, YStack, H1, ScrollView, Image, View } from 'tamagui';
 
-import type { RootStackScreenProps } from '../navigation/navigation.types';
+import type { RootStackScreenProps } from '../navigation.types';
 
 export function ForecastView(props: RootStackScreenProps<'Forecast'>) {
   const { data } = useWeatherElements();
@@ -47,7 +47,7 @@ export function ForecastView(props: RootStackScreenProps<'Forecast'>) {
                 alignItems: 'flex-start',
                 flexDirection: 'row',
                 justifyContent: 'space-evenly',
-                width: '100%',
+                minWidth: '100%',
               }}
               horizontal>
               {_.sortBy(forecast, d => d.date)

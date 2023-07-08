@@ -5,7 +5,7 @@ import { ActivityIndicator, FlatList } from 'react-native';
 import ErrorBoundary from 'react-native-error-boundary';
 import { Text } from 'tamagui';
 
-import type { RootStackScreenProps } from '../navigation/navigation.types';
+import type { RootStackScreenProps } from '../navigation.types';
 
 export function ListView(props: RootStackScreenProps<'List'>) {
   const { navigation } = props;
