@@ -6,16 +6,22 @@ import { network } from '../network';
 
 const queryKey = 'forecast';
 
-const queryFn: QueryFunction<ForecastDTO[]> = ({ signal }) => {
+type Args = { lat: number, lon: number };
+type FnType = QueryFunction<ForecastDTO, [typeof queryKey, Args]>;
+
+const queryFn: FnType = ({ signal, queryKey: qrkey }) => {
   const reqConfig = {
     signal, // signal for request cancellation
     params: {
-      unit: 'metric', // metric for god-sake!! lol
+      exclude: 'hourly,minutely,alerts',
+      units: 'metric', // metric for god-sake!! lol
+      lat: qrkey[1].lat,
+      lon: qrkey[1].lon,
     }
   };
 
   return network
-    .get<ForecastDTO[]>('/data/3.0/onecall', reqConfig)
+    .get<ForecastDTO>('/data/3.0/onecall', reqConfig)
     .then(({ data }) => data)
 };
 
@@ -23,7 +29,7 @@ const queryFn: QueryFunction<ForecastDTO[]> = ({ signal }) => {
  * Gets info about the weather.
  * why look at the sky, or do a small talk, if you can use this incredible app!?
  */
-export function useForecast({ lat, lon }: { lat: number, lon: number }) {
+export function useForecast({ lat, lon }: Args) {
   return useQuery({
     queryKey: [queryKey, { lat, lon }],
     queryFn,

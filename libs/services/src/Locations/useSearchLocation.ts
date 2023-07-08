@@ -1,7 +1,8 @@
 import { MutationFunction, useMutation } from '@tanstack/react-query';
-import { AxiosRequestConfig } from 'axios';
 
 import type { LocationDTO } from './location.types';
+import type { AxiosRequestConfig } from 'axios';
+
 
 import { network } from '../network';
 

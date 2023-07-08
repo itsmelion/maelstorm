@@ -16,7 +16,7 @@ export const network = axios.create({
   },
 });
 
-axios.interceptors.request.use((config) => {
+network.interceptors.request.use((config) => {
   const params = {
     ...config.params,
     appid: OPEN_WEATHER_API_KEY,
