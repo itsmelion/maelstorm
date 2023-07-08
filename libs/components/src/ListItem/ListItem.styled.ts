@@ -1,22 +1,22 @@
 import {
-  XStack,
+  View,
   styled,
 } from 'tamagui';
 
-export const Wrapper = styled(XStack, {
+export const Wrapper = styled(View, {
   name: 'ListItem',
-  animation: 'slow',
 
   flexShrink: 0,
   flexGrow: 0,
+  flexDirection: 'row',
+  flexWrap: 'nowrap',
   flexBasis: 'auto',
   minHeight: 60,
   width: '100%',
   alignItems: 'center',
-  backgroundColor: '$primary',
   padding: '$2',
 
   pressStyle: {
-    opacity: 0.5,
+    backgroundColor: 'rgba(30,43,80,0.05)',
   },
 })

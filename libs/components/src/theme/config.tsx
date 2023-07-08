@@ -24,7 +24,11 @@ export const tokens = createTokens({
   color: {
     white: '#fff',
     black: '#000',
-    blue: '#2DD',
+    bg: '#76b5c5',
+    bgLight: '#e6ffff',
+    text: '#0f3c4c',
+    textAlt: '#e9f5f9',
+    blue: '#2596be',
   },
 
 });
@@ -48,7 +52,7 @@ export const config = createTamagui({
         // pass in weights as keys
         200: { normal: 'Assistant-ExtraLight', italic: 'Assistant-ExtraLightItalic' },
         300: { normal: 'Exo2-Light', italic: 'Exo2-LightItalic' },
-        400: { normal: 'Assistant', italic: 'Assistant-Italic' },
+        400: { normal: 'Assistant-Regular', italic: 'Assistant-Italic' },
         600: { normal: 'Assistant-Medium', italic: 'Assistant-MediumItalic' },
         700: { normal: 'Assistant-SemiBold', italic: 'Assistant-SemiBoldItalic' },
         800: { normal: 'Assistant-Bold', italic: 'Assistant-BoldItalic' },
@@ -69,7 +73,7 @@ export const config = createTamagui({
         // pass in weights as keys
         200: { normal: 'Assistant-ExtraLight', italic: 'Assistant-ExtraLightItalic' },
         300: { normal: 'Exo2-Light', italic: 'Exo2-LightItalic' },
-        400: { normal: 'Assistant', italic: 'Assistant-Italic' },
+        400: { normal: 'Assistant-Regular', italic: 'Assistant-Italic' },
         600: { normal: 'Assistant-Medium', italic: 'Assistant-MediumItalic' },
         700: { normal: 'Assistant-SemiBold', italic: 'Assistant-SemiBoldItalic' },
         800: { normal: 'Assistant-Bold', italic: 'Assistant-BoldItalic' },
@@ -82,16 +86,16 @@ export const config = createTamagui({
 
   themes: {
     light: {
-      bg: '#f2f2f2',
-      color: tokens.color.black,
-      colorAlt: tokens.color.white,
+      bg: tokens.color.bgLight,
+      color: tokens.color.text,
+      colorAlt: tokens.color.textAlt,
       primary: tokens.color.blue,
     },
 
     dark: {
-      bg: '#111',
-      color: tokens.color.white,
-      colorAlt: tokens.color.white,
+      bg: tokens.color.bg,
+      color: tokens.color.textAlt,
+      colorAlt: tokens.color.text,
       primary: tokens.color.blue,
     },
   },

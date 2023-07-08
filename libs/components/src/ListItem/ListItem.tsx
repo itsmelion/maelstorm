@@ -1,6 +1,7 @@
-import { Text, H3, StackProps } from 'tamagui'
+import { H3, StackProps } from 'tamagui'
 
 import { Wrapper } from './ListItem.styled'
+import { Chevron } from '../icons/Chevron';
 import { Flex } from '../layout/Flex';
 
 interface ListItemProps extends StackProps {
@@ -9,8 +10,8 @@ interface ListItemProps extends StackProps {
 
 export const ListItem = ({ title, ...props }: ListItemProps) => (
   <Wrapper {...props}>
-    <H3 color={'$colorAlt'} fontWeight={'900'} >{title}</H3>
+    <H3 color={'$color'} fontWeight={'600'} >{title}</H3>
     <Flex />
-    <Text color={'$colorAlt'} fontWeight={'600'}>{'>'}</Text>
+    <Chevron />
   </Wrapper>
 );
