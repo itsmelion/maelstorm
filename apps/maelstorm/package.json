@@ -34,6 +34,8 @@
     "@react-navigation/stack": "*",
     "react-native-error-boundary": "*",
     "@tanstack/query-async-storage-persister": "*",
-    "@tanstack/react-query-persist-client": "*"
+    "@tanstack/react-query-persist-client": "*",
+    "react-native-splash-screen": "*",
+    "use-debounce": "*"
   }
 }

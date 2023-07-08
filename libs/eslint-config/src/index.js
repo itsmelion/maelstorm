@@ -46,10 +46,10 @@ module.exports = {
   settings: {
     // Tells eslint-plugin-react to automatically detect the version of React to use
     react: { version: 'detect' },
-    'import/resolver': {
-      typescript: true,
-      node: true,
-    },
+    // 'import/resolver': {
+    //   typescript: true,
+    //   node: true,
+    // },
   },
 
   rules: {
@@ -59,8 +59,6 @@ module.exports = {
     ...imports,
     ...react,
     ...typescriptGenerics,
-    indent: ['warn', 2],
-    '@typescript-eslint/indent': ['warn', 2],
   },
 
   overrides: [

@@ -29,8 +29,10 @@
     "react-native-reanimated": "^3.3.0",
     "react-native-restart": "^0.0.27",
     "react-native-screens": "^3.22.1",
+    "react-native-splash-screen": "^3.3.0",
     "tamagui": "^1.38.4",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "use-debounce": "^9.0.4"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
