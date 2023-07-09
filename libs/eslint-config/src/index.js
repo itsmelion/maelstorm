@@ -16,8 +16,9 @@ module.exports = {
 
   extends: [
     'eslint:recommended',
+    // disable airbnb broken imports config.
+    // 'airbnb-base',
     'plugin:@typescript-eslint/recommended',
-    'airbnb-base',
     'plugin:import/typescript',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
@@ -47,10 +48,10 @@ module.exports = {
   settings: {
     // Tells eslint-plugin-react to automatically detect the version of React to use
     react: { version: 'detect' },
-    // 'import/resolver': {
-    //   typescript: true,
-    //   node: true,
-    // },
+    'import/resolver': {
+      typescript: true,
+      node: true,
+    },
   },
 
   rules: {
@@ -64,18 +65,18 @@ module.exports = {
 
   overrides: [
     {
-      "files": ["*.js", "*.jsx"],
-      "rules": {
-        "@typescript-eslint/no-var-requires": 'off',
-      }
+      files: ['*.js', '*.jsx'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
     },
 
     {
-      "files": ["*.view.tsx", "*.screen.tsx", "*.route.tsx", "*.stories.tsx"],
-      "rules": {
+      files: ['*.view.tsx', '*.screen.tsx', '*.route.tsx', '*.stories.tsx', '.storybook/**'],
+      rules: {
         'import/no-default-export': 0,
         'import/prefer-default-export': 1,
-      }
+      },
     },
-  ]
+  ],
 };

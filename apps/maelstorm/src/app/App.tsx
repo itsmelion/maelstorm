@@ -30,8 +30,8 @@ export const App = () => {
       <ThemeProvider>
         <ServicesProvider>
           <Suspense fallback={<Activity title="Hold, we're checking the skies" />}>
-            {/* <WeatherStack /> */}
-            <ElementsStack />
+            <WeatherStack />
+            {/* <ElementsStack /> */}
           </Suspense>
         </ServicesProvider>
       </ThemeProvider>

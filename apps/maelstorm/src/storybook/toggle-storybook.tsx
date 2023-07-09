@@ -24,6 +24,7 @@ function ToggleStorybook(props) {
   const [StorybookUIRoot, setStorybookUIRoot] = useState(null);
   const ws = useRef(new WebSocket(DEFAULT_REACTOTRON_WS_URI));
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps, consistent-return
   useEffect(() => {
     if (!__DEV__) return undefined;
 
@@ -41,7 +42,7 @@ function ToggleStorybook(props) {
     }
 
     // Load the storybook UI once
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    // eslint-disable-next-line @typescript-eslint/no-var-requires, import/extensions
     setStorybookUIRoot(() => require('./storybook.ts').StorybookUIRoot);
 
     // Behave as Reactotron.storybookSwitcher(), not a HOC way.
@@ -52,7 +53,7 @@ function ToggleStorybook(props) {
         setShowStorybook(data.payload);
       }
     };
-    ws.current.onerror = (e) => {
+    ws.current.onerror = () => {
       setShowStorybook(false);
     };
   });

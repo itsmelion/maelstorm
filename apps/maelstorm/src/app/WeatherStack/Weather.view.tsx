@@ -3,7 +3,7 @@ import { useForecast, useSort } from '@elements/services';
 import _ from 'lodash';
 import { Suspense } from 'react';
 import ErrorBoundary from 'react-native-error-boundary';
-import { Stack, Text, XStack } from 'tamagui';
+import { Text, XStack } from 'tamagui';
 
 import type { RootStackScreenProps } from '../navigation.types';
 

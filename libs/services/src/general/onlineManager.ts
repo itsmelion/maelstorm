@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 export const useOnlineManager = () => {
   useEffect(() => {
     onlineManager.setEventListener(setOnline => NetInfo.addEventListener(state => {
-      setOnline(!!state.isConnected)
+      setOnline(Boolean(state.isConnected))
     }));
   }, []);
 }

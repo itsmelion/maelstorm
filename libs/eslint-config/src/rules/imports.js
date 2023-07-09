@@ -9,6 +9,7 @@ exports.imports = {
       tsx: 'never',
     },
   ],
+
   'import/order': [
     'warn',
     {

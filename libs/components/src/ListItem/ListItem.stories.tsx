@@ -7,6 +7,7 @@ import { ListItem } from './ListItem';
 function Spammer(StoryFn) {
   return (
     <YStack>
+      {/* eslint-disable-next-line react/no-array-index-key */}
       {new Array(4).fill(null).map((_,i) => <StoryFn key={i} />)}
     </YStack>
   );

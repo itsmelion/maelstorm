@@ -48,5 +48,5 @@ I usually cluster functionality under its own folder, and it can scale infinitel
 | State and Network data | `react-query` and `redux` | I abandoned redux for almost 4 years now, and dont see usage for it here, but seems a plus for many reviewers, therefore im doing some basic operations with it here and there just because.|
 | Typescript and data validation | `zod` | Although i didnt used it at all, i would use Zod to declare more niche types (ex: UUID instead of string) and validate it. maybe in conjunction with stuff like `react-hook-form`|
 
-### Disclaimers
+#### Disclaimers
 - My windows enviromnent was very buggy and inconvenient dev experience, so sorry for any bloopers.

@@ -7,10 +7,8 @@ import {
   StatusBar, Text,
 } from 'react-native';
 import { setJSExceptionHandler } from 'react-native-exception-handler';
-// import SplashScreen from "react-native-splash-screen";
 
 // Routes - Stacks
-import { ElementsStack } from './ElementsStack';
 import { WeatherStack } from './WeatherStack';
 
 
