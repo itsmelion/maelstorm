@@ -26,10 +26,9 @@ export function ForecastView(props: RootStackScreenProps<'Forecast'>) {
         />
 
         <Image
-          height="100%"
           position='absolute'
           source={{ uri: forecast[0].city.picture, width: 200, height: 500 }}
-          width="100%"
+          style={{ width: "100%", height: "100%" }}
         />
         <View
           backgroundColor={'#000'}
