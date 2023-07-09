@@ -37,6 +37,9 @@
     "react-native-splash-screen": "*",
     "react-native-svg": "*",
     "tamagui": "*",
-    "use-debounce": "*"
+    "use-debounce": "*",
+    "react-redux": "*",
+    "@reduxjs/toolkit": "*",
+    "dayjs": "*"
   }
 }

@@ -1,11 +1,15 @@
-import { XStack } from 'tamagui';
+import { StackPropsBase, Text } from 'tamagui';
 
-import { Button as B } from './Button.styled'
+import { Wrapper } from './Button.styled'
 
-export const Button = ({ title }) => (
-  <XStack>
-    <B>
-      <B.Text>hi</B.Text>
-    </B>
-  </XStack>
+interface ButtonProps extends StackPropsBase {
+  title: string;
+}
+
+export const Button = ({ title, ...props }:ButtonProps) => (
+  <Wrapper {...props}>
+    <Text color={'$colorAlt'} fontWeight={'700'} lineHeight={'$4'}>
+      {title}
+    </Text>
+  </Wrapper>
 )

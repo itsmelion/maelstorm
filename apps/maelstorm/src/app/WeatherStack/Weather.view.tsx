@@ -1,15 +1,14 @@
-import { CurrentWeather } from '@elements/components';
+import { Button, CurrentWeather, ForecastItem, ForecastList, Flex, Center } from '@elements/components';
 import { useForecast, useSort } from '@elements/services';
 import _ from 'lodash';
 import { Suspense } from 'react';
-import { ScrollView, Pressable } from 'react-native';
 import ErrorBoundary from 'react-native-error-boundary';
-import { Stack, Text } from 'tamagui';
+import { Stack, Text, XStack } from 'tamagui';
 
 import type { RootStackScreenProps } from '../navigation.types';
 
 export function WeatherView(props: RootStackScreenProps<'Weather'>) {
-  const { route } = props;
+  const { route, navigation } = props;
   const { lat, lon, locality } = route.params;
   const { data } = useForecast({ lat, lon });
   const sort = useSort();
@@ -19,29 +18,23 @@ export function WeatherView(props: RootStackScreenProps<'Weather'>) {
       <ErrorBoundary FallbackComponent={() => <Text>Something went wrong</Text>}>
         <Stack flex={1} space={20}>
           <CurrentWeather
+            data={data.current}
             locality={locality}
             temperature={data.current.temp}
           />
 
-
-          <Text fontWeight={'700'}>
-            Forecast
-          </Text>
-
-          <Pressable onPress={sort.toggle}>
-            <Text fontWeight={'800'}>
-              {sort.value === 'asc' ? 'ascending' : 'descending'}
+          <XStack alignItems='center' justifyContent="space-between" px={'$4'}>
+            <Text fontWeight={'700'}>
+              Forecast
             </Text>
-          </Pressable>
 
-          <ScrollView
-            contentContainerStyle={{
-              alignItems: 'flex-start',
-              flexDirection: 'row',
-              justifyContent: 'space-evenly',
-              minWidth: '100%',
-            }}
-            horizontal>
+            <Button
+              onPress={sort.toggle}
+              title={sort.value === 'asc' ? 'ascending' : 'descending'}
+            />
+          </XStack>
+
+          <ForecastList>
             {_(data.daily)
               .sortBy(data.daily, d => d.dt)
               .splice(0,5)
@@ -50,15 +43,21 @@ export function WeatherView(props: RootStackScreenProps<'Weather'>) {
                 return v;
               })
               .map((d) => (
-                <Text
-                  color={'$color'}
-                  fontWeight={'400'}
-                  key={d.dt}>
-                  {`${_.round(d.temp.max)}°/${_.round(d.temp.min)}°`}
-                </Text>
+                <ForecastItem
+                  dt={d.dt}
+                  key={d.dt}
+                  temp={d.temp}
+                  weather={d.weather}
+                />
               ))
               .value()}
-          </ScrollView>
+          </ForecastList>
+
+          <Flex />
+
+          <Center mb={'$4'}>
+            <Button onPress={() => navigation.goBack()} title='Search'/>
+          </Center>
         </Stack>
       </ErrorBoundary>
     </Suspense>

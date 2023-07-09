@@ -1,5 +1,5 @@
 # Maelstorm
-
+[![QualityChecks](https://github.com/itsmelion/elements/actions/workflows/lint.yml/badge.svg)](https://github.com/itsmelion/elements/actions/workflows/lint.yml)
 #### Goal:
 My focus on this test is to display the wider knowledge i have as a professional as i can in the time invested.
 I may briefly, but enoughly covered many subjects that i consider relevant for a JS professional.
@@ -31,12 +31,12 @@ Its good because allow ease to implement the pattern and the following possibili
   - Services often consumed across apps (eg: `Files.awsUploader(item)`)
   - modules, like route stacks often feature-flagged stuff
 
+Many of my design patters come from Angular, especially the naming ex: `File.module.ts` + `File.styles.scss` etc..
+I usually cluster functionality under its own folder, and it can scale infinitelly and removed easily by deleting the parent and its imports.
+
 #### Tests and quality ensurance
 - I've created a GitHub action workflow to run linting and tests on the CI.
 - `npx nx run-many --target=test` (will run all unit tests)
-
-Many of my design patters come from Angular, especially the naming ex: `File.module.ts` + `File.styles.scss` etc..
-I usually cluster functionality under its own folder, and it can scale infinitelly and removed easily by deleting the parent and its imports.
 
 ### Software decisions:
 

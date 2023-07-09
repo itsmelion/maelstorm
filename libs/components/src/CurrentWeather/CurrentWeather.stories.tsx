@@ -13,5 +13,13 @@ export const Primary = {
   args: {
     locality: 'Stockholm',
     temperature: 12.2,
+    data: {
+      weather: [{
+        "id": 500,
+        "main": "Rain",
+        "description": "light rain",
+        "icon": "10n"
+      }]
+    }
   },
 };

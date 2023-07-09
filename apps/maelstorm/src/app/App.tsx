@@ -25,15 +25,13 @@ export const App = () => {
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar backgroundColor={'transparent'} barStyle="dark-content"  />
 
       <ThemeProvider>
         <ServicesProvider>
           <Suspense>
-            <Container>
-              <WeatherStack />
-              {/* <ElementsStack /> */}
-            </Container>
+            <WeatherStack />
+            {/* <ElementsStack /> */}
           </Suspense>
         </ServicesProvider>
       </ThemeProvider>

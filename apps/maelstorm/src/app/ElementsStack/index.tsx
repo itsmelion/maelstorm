@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator();
 
 export function ElementsStack() {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={{ colors: { background: 'transparent' }}}>
       <Stack.Navigator
         initialRouteName={List.name}
         screenOptions={{ headerShown: false }}>

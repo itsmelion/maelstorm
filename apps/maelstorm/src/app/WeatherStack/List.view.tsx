@@ -1,9 +1,8 @@
-import { ListItem, Field } from '@elements/components';
+import { ListItem, Field, Center } from '@elements/components';
 import { useSearchLocation } from '@elements/services';
 import { Suspense, useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList } from 'react-native';
 import ErrorBoundary from 'react-native-error-boundary';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { H2, Text, View } from 'tamagui';
 import { useDebounce } from 'use-debounce';
 
@@ -21,13 +20,15 @@ export function ListView(props: RootStackScreenProps<'List'>) {
 
   return (
     <Suspense fallback={<Text>Data is on the way</Text>}>
-      <ErrorBoundary FallbackComponent={() => <Text>Something went wrong</Text>}>
-        <View padding={12}>
-          <SafeAreaView>
-            <H2 fontWeight={'300'} marginBottom={10}>
-              Search a location
-            </H2>
-          </SafeAreaView>
+      <ErrorBoundary FallbackComponent={({ resetError }) => (
+        <Center onPress={resetError}>
+          <Text>Something went terribly wrong. :S</Text>
+        </Center>
+      )}>
+        <View padding={'$3'}>
+          <H2 fontWeight={'300'} marginBottom={'$2'}>
+            Search a location
+          </H2>
 
           <Field
             autoFocus
@@ -38,24 +39,27 @@ export function ListView(props: RootStackScreenProps<'List'>) {
           />
         </View>
 
-        {isLoading ? <ActivityIndicator /> :
-          <FlatList
-            ListEmptyComponent={<Text>Search something lad!</Text>}
-            data={data}
-            onRefresh={() => mutate({searchTerm})}
-            refreshing={isLoading}
-            renderItem={({ item, index }) => (
-              <ListItem
-                key={index}
-                onPress={() => navigation.push('Weather', {
-                  lat: item.lat,
-                  lon: item.lon,
-                  locality: item.name
-                })}
-                title={`${item.name}, ${item.country}`}
-              />
-            )}
-          />}
+        <FlatList
+          ListEmptyComponent={(
+            <Center>
+              {isLoading ? <ActivityIndicator /> : <Text>Search something lad!</Text>}
+            </Center>
+          )}
+          data={data}
+          onRefresh={() => mutate({searchTerm})}
+          refreshing={isLoading}
+          renderItem={({ item, index }) => (
+            <ListItem
+              key={index}
+              onPress={() => navigation.push('Weather', {
+                lat: item.lat,
+                lon: item.lon,
+                locality: item.name
+              })}
+              title={`${item.name}, ${item.country}`}
+            />
+          )}
+        />
       </ErrorBoundary>
     </Suspense>
   );

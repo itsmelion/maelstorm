@@ -1,33 +1,15 @@
-import {
-  SizeTokens,
-  Stack,
-  Text,
-  createStyledContext,
-  styled,
-  withStaticProperties,
-} from 'tamagui';
+import { styled, View } from 'tamagui';
 
-export const ButtonContext = createStyledContext({
-  size: '$md' as SizeTokens,
-})
-
-export const ButtonFrame = styled(Stack, {
-  name: 'Button',
-  animation: 'fast',
-
-  flex: 1,
-  maxWidth: 200,
+export const Wrapper = styled(View, {
   alignItems: 'center',
   flexDirection: 'row',
   backgroundColor: '$primary',
+  borderRadius: '$2',
+  paddingVertical: '$1',
+  paddingHorizontal: '$2',
 
-  pressStyle: {
-    scale: 0.95,
-    opacity: 0.5,
-  },
-})
-
-export const Button = withStaticProperties(ButtonFrame, {
-  Props: ButtonContext.Provider,
-  Text,
-})
+  flexGrow: 0,
+  flexShrink: 0,
+  flexBasis: 'auto',
+  flexWrap: 'nowrap',
+});

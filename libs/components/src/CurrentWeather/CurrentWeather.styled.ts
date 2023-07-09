@@ -5,5 +5,6 @@ export const Wrapper = styled(MotiView, {
   alignItems: 'center',
   justifyContent: 'center',
   alignSelf: 'center',
-  padding: '$2'
+  padding: '$2',
+  space: 20,
 });

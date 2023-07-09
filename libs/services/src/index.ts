@@ -17,6 +17,7 @@ export { useSearchLocation } from './Locations/useSearchLocation';
 
 // Forecast/Weather
 export { useForecast } from './Forecast/useForecast';
+export type { Current, Weather, Temp } from './Forecast/forecast.types';
 
 
 // Store (redux)

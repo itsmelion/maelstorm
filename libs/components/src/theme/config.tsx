@@ -6,6 +6,8 @@ export const tokens = createTokens({
     0: 0,
     1: 6,
     2: 12,
+    3: 18,
+    4: 24,
     true: 6,
   },
 
@@ -13,11 +15,19 @@ export const tokens = createTokens({
     0: 0,
     1: 6,
     2: 12,
+    3: 18,
+    4: 24,
     '-1': -5, '-2': -10,
     true: 6,
   },
 
-  radius: { 0: 0, 1: 3 },
+  radius: {
+    0: 0,
+    1: 6,
+    2: 12,
+    3: 18,
+    4: 24,
+  },
 
   zIndex: { 0: 0, 1: 100, 2: 200 },
 
@@ -135,14 +145,6 @@ export const config = createTamagui({
       stiffness: 60,
     },
   }),
-
-  // Experimental / advanced, only for overriding the core component styles
-  // Prefer to use styled() for building your own, only useful for edge cases.
-  defaultProps: {
-    Text: {
-      // override any default props here
-    },
-  },
 });
 
 // this will give you types for your components
