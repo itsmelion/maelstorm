@@ -1,7 +1,6 @@
 import '@testing-library/jest-native/extend-expect';
 import 'react-native-gesture-handler/jestSetup';
 import mockRNCNetInfo from '@react-native-community/netinfo/jest/netinfo-mock';
-import _ from 'lodash';
 
 process.env.TAMAGUI_TARGET = 'native';
 
@@ -11,7 +10,7 @@ jest.mock('react-native-reanimated', () => {
 
   // The mock for `call` immediately calls the callback which is incorrect
   // So we override it with a no-op
-  Reanimated.default.call = _.noop;
+  Reanimated.default.call = () => undefined;
 
   return Reanimated;
 });

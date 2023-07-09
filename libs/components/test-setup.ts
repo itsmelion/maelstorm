@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import '@testing-library/jest-native/extend-expect';
 import 'react-native-gesture-handler/jestSetup';
 
@@ -10,7 +9,7 @@ jest.mock('react-native-reanimated', () => {
 
   // The mock for `call` immediately calls the callback which is incorrect
   // So we override it with a no-op
-  Reanimated.default.call = _.noop;
+  Reanimated.default.call = () => undefined;
 
   return Reanimated;
 });
