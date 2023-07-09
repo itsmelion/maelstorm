@@ -1,4 +1,4 @@
-import { Button, Center, Container, ForecastList, Flex } from '@elements/components';
+import { Button, Center, Container, ForecastList, Flex, Activity, ErrorComponent } from '@elements/components';
 import { useWeatherElements } from '@elements/services';
 import dayjs from 'dayjs';
 import _ from 'lodash';
@@ -17,8 +17,8 @@ export function ForecastView(props: RootStackScreenProps<'Forecast'>) {
 
 
   return (
-    <Suspense fallback={<Text>Data is on the way</Text>}>
-      <ErrorBoundary FallbackComponent={() => <Text>Something went wrong</Text>}>
+    <Suspense fallback={<Activity title={`Peeking ${cityId} weather..`} />}>
+      <ErrorBoundary FallbackComponent={ErrorComponent}>
         <StatusBar
           backgroundColor={'#00000000'}
           barStyle="light-content"

@@ -1,6 +1,6 @@
 import 'react-native-reanimated';
 import 'react-native-gesture-handler';
-import { Container, ThemeProvider } from '@elements/components';
+import { Activity, ThemeProvider } from '@elements/components';
 import { ServicesProvider, errorHandler } from '@elements/services';
 import { Suspense, useEffect } from 'react';
 import {
@@ -29,9 +29,9 @@ export const App = () => {
 
       <ThemeProvider>
         <ServicesProvider>
-          <Suspense>
-            <WeatherStack />
-            {/* <ElementsStack /> */}
+          <Suspense fallback={<Activity title="Hold, we're checking the skies" />}>
+            {/* <WeatherStack /> */}
+            <ElementsStack />
           </Suspense>
         </ServicesProvider>
       </ThemeProvider>

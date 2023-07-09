@@ -15,4 +15,9 @@ export { CurrentWeather } from './CurrentWeather/CurrentWeather';
 export { ForecastItem } from './Forecast/ForecastItem';
 export { ForecastList } from './Forecast/ForecastList';
 
+// User Feedback Components
+export { ErrorComponent } from './feedback/ErrorComponent';
+export { Activity } from './feedback/Activity';
+
+
 // Pages in the app.

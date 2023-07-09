@@ -1,9 +1,9 @@
-import { Container, ListItem } from '@elements/components';
+import { Activity, Container, ErrorComponent, ListItem } from '@elements/components';
 import { useWeatherElements } from '@elements/services';
 import { Suspense } from 'react';
 import { ActivityIndicator, FlatList, StatusBar } from 'react-native';
 import ErrorBoundary from 'react-native-error-boundary';
-import { Text, useTheme } from 'tamagui';
+import { useTheme } from 'tamagui';
 
 import type { RootStackScreenProps } from '../navigation.types';
 
@@ -16,8 +16,8 @@ export function ListView(props: RootStackScreenProps<'List'>) {
   if (!data) return <ActivityIndicator />
 
   return (
-    <Suspense fallback={<Text>Data is on the way</Text>}>
-      <ErrorBoundary FallbackComponent={() => <Text>Something went wrong</Text>}>
+    <Suspense fallback={<Activity title='Data is on the way' />}>
+      <ErrorBoundary FallbackComponent={ErrorComponent}>
         <StatusBar backgroundColor={tokens.bgLight.val} barStyle="dark-content" />
 
         <Container>

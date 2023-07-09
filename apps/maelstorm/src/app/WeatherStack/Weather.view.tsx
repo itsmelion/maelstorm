@@ -1,4 +1,4 @@
-import { Button, CurrentWeather, ForecastItem, ForecastList, Flex, Center } from '@elements/components';
+import { Button, CurrentWeather, ForecastItem, ForecastList, Flex, Center, Activity, ErrorComponent } from '@elements/components';
 import { useForecast, useSort } from '@elements/services';
 import _ from 'lodash';
 import { Suspense } from 'react';
@@ -14,8 +14,8 @@ export function WeatherView(props: RootStackScreenProps<'Weather'>) {
   const sort = useSort();
 
   return (
-    <Suspense fallback={<Text>Data is on the way</Text>}>
-      <ErrorBoundary FallbackComponent={() => <Text>Something went wrong</Text>}>
+    <Suspense fallback={<Activity title={`Peeking ${locality} weather..`} />}>
+      <ErrorBoundary FallbackComponent={ErrorComponent}>
         <Stack flex={1} space={20}>
           <CurrentWeather
             data={data.current}
