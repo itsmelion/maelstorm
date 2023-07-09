@@ -1,5 +1,6 @@
 // Config, Wrappers etc..
 export { ThemeProvider, tokens, config as themeConfig } from './theme/config';
+export { ThemeProvider as TestProvider } from './theme/test.config';
 
 // Atoms
 export { Container } from './layout/Container';

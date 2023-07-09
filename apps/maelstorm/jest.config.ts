@@ -8,6 +8,6 @@ module.exports = {
     '\\.svg$': '@nx/react-native/plugins/jest/svg-mock',
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(jest-)?@?react-native|@react-native-community|@react-navigation|@tamagui|tamagui)',
+    'node_modules/(?!(jest-)?@?react-native|@react-native-community|@react-navigation|@tamagui|tamagui|moti)',
   ],
 };

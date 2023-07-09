@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react-native';
 import React from 'react';
 
-import {App} from './App';
+import {AppMocked} from './AppMocked';
 
-test('renders correctly', () => {
-  const { getByTestId } = render(<App />);
-  expect(getByTestId('heading')).toHaveTextContent('Hello');
+test('App renders correctly', () => {
+  const { root } = render(<AppMocked />);
+  expect(root).toHaveTextContent('My test is so cool!');
 });
