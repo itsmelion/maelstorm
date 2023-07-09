@@ -31,7 +31,7 @@ export function ForecastView(props: RootStackScreenProps<'Forecast'>) {
           style={{ width: "100%", height: "100%" }}
         />
         <View
-          backgroundColor={'#000'}
+          backgroundColor={'$overlay'}
           height="100%"
           opacity={0.6}
           position='absolute'

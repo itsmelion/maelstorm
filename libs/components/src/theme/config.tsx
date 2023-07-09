@@ -1,5 +1,6 @@
 import { createAnimations } from '@tamagui/animations-moti';
-import { createFont, createTamagui, createTokens, TamaguiProvider, TamaguiProviderProps } from 'tamagui';
+import { useColorScheme } from 'react-native';
+import { createFont, createTamagui, createTokens, TamaguiProvider, TamaguiProviderProps, Theme } from 'tamagui';
 
 export const tokens = createTokens({
   size: {
@@ -100,6 +101,7 @@ export const config = createTamagui({
       color: tokens.color.text,
       colorAlt: tokens.color.textAlt,
       primary: tokens.color.blue,
+      overlay: tokens.color.black,
     },
 
     dark: {
@@ -107,6 +109,7 @@ export const config = createTamagui({
       color: tokens.color.textAlt,
       colorAlt: tokens.color.text,
       primary: tokens.color.blue,
+      overlay: tokens.color.bgLight,
     },
   },
 
@@ -158,6 +161,14 @@ declare module 'tamagui' {
 }
 /* eslint-enable @typescript-eslint/no-empty-interface, @typescript-eslint/ban-ts-comment */
 
-export const ThemeProvider = (props: Partial<TamaguiProviderProps>) => (
-  <TamaguiProvider config={config} {...props} />
-);
+export const ThemeProvider = ({ children, ...props }: Partial<TamaguiProviderProps>) => {
+  const colorScheme = useColorScheme();
+
+  return (
+    <TamaguiProvider config={config} {...props}>
+      <Theme name={colorScheme === 'dark' ? 'dark' : 'light'}>
+        {children}
+      </Theme>
+    </TamaguiProvider>
+  );
+};

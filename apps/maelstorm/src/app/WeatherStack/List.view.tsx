@@ -1,4 +1,4 @@
-import { ListItem, Field, Center } from '@elements/components';
+import { ListItem, Field, Center, ErrorComponent, Activity, Container } from '@elements/components';
 import { useSearchLocation } from '@elements/services';
 import { Suspense, useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList } from 'react-native';
@@ -19,47 +19,45 @@ export function ListView(props: RootStackScreenProps<'List'>) {
   }, [searchTerm, mutate]);
 
   return (
-    <Suspense fallback={<Text>Data is on the way</Text>}>
-      <ErrorBoundary FallbackComponent={({ resetError }) => (
-        <Center onPress={resetError}>
-          <Text>Something went terribly wrong. :S</Text>
-        </Center>
-      )}>
-        <View padding={'$3'}>
-          <H2 fontWeight={'300'} marginBottom={'$2'}>
-            Search a location
-          </H2>
+    <Suspense fallback={<Activity title="Listing some locations"/>}>
+      <ErrorBoundary FallbackComponent={ErrorComponent}>
+        <Container>
+          <View padding={'$3'}>
+            <H2 fontWeight={'300'} marginBottom={'$2'}>
+              Search a location
+            </H2>
 
-          <Field
-            autoFocus
-            onChangeText={setQuery}
-            textContentType='location'
-            type="search"
-            value={query}
-          />
-        </View>
-
-        <FlatList
-          ListEmptyComponent={(
-            <Center>
-              {isLoading ? <ActivityIndicator /> : <Text>Search something lad!</Text>}
-            </Center>
-          )}
-          data={data}
-          onRefresh={() => mutate({searchTerm})}
-          refreshing={isLoading}
-          renderItem={({ item, index }) => (
-            <ListItem
-              key={index}
-              onPress={() => navigation.push('Weather', {
-                lat: item.lat,
-                lon: item.lon,
-                locality: item.name
-              })}
-              title={`${item.name}, ${item.country}`}
+            <Field
+              autoFocus
+              onChangeText={setQuery}
+              textContentType='location'
+              type="search"
+              value={query}
             />
-          )}
-        />
+          </View>
+
+          <FlatList
+            ListEmptyComponent={(
+              <Center>
+                {isLoading ? <ActivityIndicator /> : <Text>Search something lad!</Text>}
+              </Center>
+            )}
+            data={data}
+            onRefresh={() => mutate({searchTerm})}
+            refreshing={isLoading}
+            renderItem={({ item, index }) => (
+              <ListItem
+                key={index}
+                onPress={() => navigation.push('Weather', {
+                  lat: item.lat,
+                  lon: item.lon,
+                  locality: item.name
+                })}
+                title={`${item.name}, ${item.country}`}
+              />
+            )}
+          />
+        </Container>
       </ErrorBoundary>
     </Suspense>
   );
