@@ -30,6 +30,7 @@ export function ListView(props: RootStackScreenProps<'List'>) {
             <Field
               autoFocus
               onChangeText={setQuery}
+              placeholder='Search a location'
               textContentType='location'
               type="search"
               value={query}

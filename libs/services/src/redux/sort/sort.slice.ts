@@ -24,6 +24,11 @@ const slice = createSlice({
 
 
 // Store Accessors and Mutators
+
+/**
+ * Sorting state
+ * @returns value and toggle method.
+ */
 export const useSort = () => {
   const dispatch = useAppDispatch();
   const value = useAppSelector((state: RootState) => state.sort.sort);

@@ -14,6 +14,9 @@ const queryFn: QueryFunction<Data> = ({ signal }): Promise<Data> => network
   .then(data => data.map(item => ({ ...item, temp: convertToCelsius(item.temp, item.tempType) })))
   .then((data) => _.groupBy(data, 'city.name'));
 
+
+/**
+ * Gets forecasts for a number of cities (Elements API) */
 export function useWeatherElements() {
   return useQuery({
     queryKey: [queryKey],
