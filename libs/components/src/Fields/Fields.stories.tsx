@@ -10,5 +10,7 @@ const Story: Meta<typeof Field> = {
 export default Story;
 
 export const SearchField = {
-  args: {},
+  args: {
+    placeholder: 'Search a location'
+  },
 };
