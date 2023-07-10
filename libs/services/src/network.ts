@@ -14,6 +14,7 @@ export const network = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  timeout: 1000 * 60 * 0.10,
 });
 
 network.interceptors.request.use((config) => {

@@ -18,7 +18,8 @@ const queryClient = new QueryClient({
       suspense: true, // Unfortunately offline-mode kinda ruins suspense mode
       staleTime: 1000 * 60 * 5,
       cacheTime: Infinity,
-      retry: 0,
+      retry: 2,
+      networkMode: 'offlineFirst',
     },
   },
 });
