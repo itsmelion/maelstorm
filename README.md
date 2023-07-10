@@ -1,5 +1,8 @@
 # Maelstorm
 [![QualityChecks](https://github.com/itsmelion/elements/actions/workflows/lint.yml/badge.svg)](https://github.com/itsmelion/elements/actions/workflows/lint.yml)
+
+Reading is nice.. but i have a intro video for you!<br/>
+[![](https://markdown-videos.vercel.app/youtube/hqc3VsUEF48)](https://youtu.be/hqc3VsUEF48)
 #### Goal:
 My focus on this test is to display the wider knowledge i have as a professional as i can in the time invested.
 I may briefly, but enoughly covered many subjects that i consider relevant for a JS professional.
@@ -7,6 +10,7 @@ Them being:
 - Clean and comprehensive code
 - good architecture, ability to think and organize massive projects.
 - capability to operate the libraries suggested by the company
+
 
 ## Installation and usage
 - `npm install`

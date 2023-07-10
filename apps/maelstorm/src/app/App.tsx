@@ -10,7 +10,7 @@ import { setJSExceptionHandler, setNativeExceptionHandler } from 'react-native-e
 import SplashScreen from "react-native-splash-screen";
 
 // Routes - Stacks
-import { ElementsStack } from './ElementsStack';
+// import { ElementsStack } from './ElementsStack';
 import { WeatherStack } from './WeatherStack';
 
 export const App = () => {
