@@ -1,5 +1,5 @@
 # Maelstorm
-[![QualityChecks](https://github.com/itsmelion/elements/actions/workflows/lint.yml/badge.svg)](https://github.com/itsmelion/elements/actions/workflows/lint.yml)
+[![QualityChecks](https://github.com/itsmelion/maelstorm/actions/workflows/lint.yml/badge.svg)](https://github.com/itsmelion/maelstorm/actions/workflows/lint.yml)
 
 Reading is nice.. but i have a intro video for you!<br/>
 [![](https://markdown-videos.vercel.app/youtube/hqc3VsUEF48)](https://youtu.be/hqc3VsUEF48)
