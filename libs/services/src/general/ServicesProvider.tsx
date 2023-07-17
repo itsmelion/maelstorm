@@ -13,6 +13,12 @@ import { store as reduxStore } from '../redux/store';
 
 const queryClient = new QueryClient({
   defaultOptions: {
+    mutations: {
+      cacheTime: 1000 * 60 * 30,
+      retry: 2,
+      networkMode: 'always',
+      useErrorBoundary: true,
+    },
     queries: {
       keepPreviousData: true,
       suspense: true, // Unfortunately offline-mode kinda ruins suspense mode
@@ -20,6 +26,7 @@ const queryClient = new QueryClient({
       cacheTime: Infinity,
       retry: 2,
       networkMode: 'offlineFirst',
+      useErrorBoundary: true,
     },
   },
 });

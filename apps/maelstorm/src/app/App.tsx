@@ -1,10 +1,11 @@
 import 'react-native-reanimated';
 import 'react-native-gesture-handler';
-import { Activity, ThemeProvider } from '@elements/components';
+import { Activity, ErrorComponent, ThemeProvider } from '@elements/components';
 import { ServicesProvider, errorHandler } from '@elements/services';
 import { Suspense, useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import Config from 'react-native-config';
+import ErrorBoundary from 'react-native-error-boundary';
 import { setJSExceptionHandler, setNativeExceptionHandler } from 'react-native-exception-handler';
 import SplashScreen from "react-native-splash-screen";
 
@@ -29,9 +30,11 @@ export const App = () => {
       <ThemeProvider>
         <ServicesProvider>
           <Suspense fallback={<Activity title="Hold, we're checking the skies" />}>
-            {Config.IS_ELEMENTS === 'true'
-              ? <ElementsStack />
-              : <WeatherStack />}
+            <ErrorBoundary FallbackComponent={ErrorComponent}>
+              {Config.IS_ELEMENTS === 'true'
+                ? <ElementsStack />
+                : <WeatherStack />}
+            </ErrorBoundary>
           </Suspense>
         </ServicesProvider>
       </ThemeProvider>
