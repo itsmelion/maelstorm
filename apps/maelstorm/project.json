@@ -39,7 +39,9 @@
         "{projectRoot}/android/app/build/outputs/bundle",
         "{projectRoot}/android/app/build/outputs/apk"
       ],
-      "options": {}
+      "options": {
+        "mode": "release"
+      }
     },
     "build-ios": {
       "executor": "@nx/react-native:build-ios",
