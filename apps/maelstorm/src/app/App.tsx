@@ -3,14 +3,13 @@ import 'react-native-gesture-handler';
 import { Activity, ThemeProvider } from '@elements/components';
 import { ServicesProvider, errorHandler } from '@elements/services';
 import { Suspense, useEffect } from 'react';
-import {
-  StatusBar,
-} from 'react-native';
+import { StatusBar } from 'react-native';
+import Config from 'react-native-config';
 import { setJSExceptionHandler, setNativeExceptionHandler } from 'react-native-exception-handler';
 import SplashScreen from "react-native-splash-screen";
 
 // Routes - Stacks
-// import { ElementsStack } from './ElementsStack';
+import { ElementsStack } from './ElementsStack';
 import { WeatherStack } from './WeatherStack';
 
 export const App = () => {
@@ -30,8 +29,9 @@ export const App = () => {
       <ThemeProvider>
         <ServicesProvider>
           <Suspense fallback={<Activity title="Hold, we're checking the skies" />}>
-            <WeatherStack />
-            {/* <ElementsStack /> */}
+            {Config.IS_ELEMENTS === 'true'
+              ? <ElementsStack />
+              : <WeatherStack />}
           </Suspense>
         </ServicesProvider>
       </ThemeProvider>
